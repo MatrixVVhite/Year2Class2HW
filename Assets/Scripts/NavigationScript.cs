@@ -1,50 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NavigationScript : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent[] agents;
+    [SerializeField] private List<NavMeshAgent> agents;
     [SerializeField] private Transform endPos;
 
-    private void Start()
-    {
-        agents[0].SetAreaCost(5, 1);
-        agents[1].SetAreaCost(4, 1);
-        foreach(NavMeshAgent agent in agents)
-            agent.SetDestination(endPos.position);
-        StartCoroutine(CheckWinner());
-    }
+	private void Update()
+	{
+		CheckInput();
+	}
 
-    private void Update()
-    {
-        //if (agents[0].remainingDistance < 0.2f && !hasWon)
-        //{
-        //    Debug.Log($"{agents[0]} wins");
-        //    hasWon = true;
-        //}
-        //else if (agents[1].remainingDistance < 0.2f && !hasWon)
-        //{
-        //    Debug.Log($"{agents[1]} wins");
-        //    hasWon = true;
-        //}
-    }
+	private void CheckInput()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 200))
+				SendAllAgents(hit.point);
+		}
+	}
 
-    private IEnumerator CheckWinner()
+	private void SendAllAgents(Vector3 position)
+	{
+		SendAgentsToPosition(position);
+        endPos.position = position;
+		agents.ForEach(a => StartCoroutine(CheckReachedEndPos(a)));
+	}
+
+	private void SendAgentsToPosition(Vector3 position)
+	{
+		agents.ForEach(a => a.SetDestination(position));
+	}
+
+	private IEnumerator CheckReachedEndPos(NavMeshAgent agent)
     {
         while (true)
         {
             yield return new WaitForSeconds(0.1f);
-            if (agents[0].remainingDistance < 0.2f)
+            if (agent.remainingDistance < 1)
             {
-                Debug.Log($"{agents[0]} wins");
-                break;
-            }
-            else if (agents[1].remainingDistance < 0.2f)
-            {
-                Debug.Log($"{agents[1]} wins");
+                Debug.Log($"{agent} has reached its destination.");
                 break;
             }
         }
