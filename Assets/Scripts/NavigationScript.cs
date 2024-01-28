@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class NavigationScript : MonoBehaviour
 {
     [SerializeField] private List<NavMeshAgent> agents;
     [SerializeField] private Transform endPos;
+	[SerializeField] private TextMeshProUGUI writeTo;
 
 	private void Update()
 	{
@@ -41,7 +43,8 @@ public class NavigationScript : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             if (agent.remainingDistance < 1)
             {
-                Debug.Log($"{agent} has reached its destination.");
+				if (writeTo != null)
+					writeTo.text = ($"{agent.name} has reached its destination.");
                 break;
             }
         }
