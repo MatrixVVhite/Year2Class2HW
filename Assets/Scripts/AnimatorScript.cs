@@ -1,14 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimatorScript : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private CharacterController _characterController;
     private readonly int _characterSpeed = Animator.StringToHash("CharacterSpeed");
 
-    void UpdateCharacterSpeed(float speed)
+	private void OnEnable()
+	{
+        _characterController.onCharacterVelocityChange += UpdateCharacterSpeed;
+	}
+
+	private void OnDisable()
+	{
+		_characterController.onCharacterVelocityChange -= UpdateCharacterSpeed;
+	}
+
+	void UpdateCharacterSpeed(float speed)
     {
-        animator.SetFloat(_characterSpeed, speed);
+        _animator.SetFloat(_characterSpeed, speed);
     }
 }

@@ -89,7 +89,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445253136182669352}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -237,9 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2f484f09e8ba644bf0f6a90e265fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onCharacterVelocityChange:
-    m_PersistentCalls:
-      m_Calls: []
   _rb: {fileID: 2818431794747624068}
   _movementSpeedMultiplier: 50
 --- !u!114 &8993090000842600324
@@ -254,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155068f96db091143b03eb16f2d6c3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5306769137192825064}
+  _animator: {fileID: 5306769137192825064}
+  _characterController: {fileID: 124448844373978139}
 --- !u!95 &5306769137192825064 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 32503eb8f68f68e429e8dcad6e5a7cc3, type: 3}
