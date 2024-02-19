@@ -9,7 +9,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _movementSpeedMultiplier = 100f;
 	private UnityEvent<float> onCharacterVelocityChangeEvent = new();
 	private Vector2 _move;
-	private float _previousCharacterVelocity = 0f;
+	private Vector3 _previousCharacterPosition;
+	private float _previousCharacterVelocity;
+
+	private float CurrentCharacterVelocity => (_previousCharacterPosition - _rb.position).magnitude/Time.fixedDeltaTime;
 
 	private void Awake()
 	{
@@ -25,9 +28,9 @@ public class CharacterController : MonoBehaviour
 	private void FixedUpdate()
 	{
         _rb.AddForce(new Vector3(_move.x, 0, _move.y) * _movementSpeedMultiplier, ForceMode.Impulse);
-        float currentCharacterVelocity = _rb.velocity.magnitude;
-		if (currentCharacterVelocity != _previousCharacterVelocity)
-            onCharacterVelocityChangeEvent.Invoke(currentCharacterVelocity);
-        _previousCharacterVelocity = currentCharacterVelocity;
+		if (CurrentCharacterVelocity != _previousCharacterVelocity)
+            onCharacterVelocityChangeEvent.Invoke(CurrentCharacterVelocity);
+        _previousCharacterPosition = _rb.position;
+		_previousCharacterVelocity = CurrentCharacterVelocity;
 	}
 }
