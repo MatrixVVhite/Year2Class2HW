@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Rigidbody _rb;
+    [SerializeField] private float _speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
