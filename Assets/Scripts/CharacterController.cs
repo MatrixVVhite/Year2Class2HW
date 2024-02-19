@@ -7,5 +7,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] Rigidbody _rb;
     [SerializeField] private float _speed;
 
-
+    private void OnMove()
+    {
+        
+    }
 }
