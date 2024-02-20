@@ -23,9 +23,9 @@ public class AnimatorScript : MonoBehaviour
         _animator.SetFloat(_characterSpeed, speed);
     }
 
-	void UpdateCharacterRotation(Vector2 rotation)
+	void UpdateCharacterRotation(Quaternion rotation)
 	{
-		if (rotation != Vector2.zero)
-			transform.rotation = Quaternion.Euler(0, Vector2.SignedAngle(rotation, Vector2.up), 0);
+		if (rotation != Quaternion.identity)
+			transform.localRotation = rotation;
 	}
 }

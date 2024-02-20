@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 8061765485289557330}
+  _movementDirection: {fileID: 8430727974804552422}
   _walkVelocity: 10
   _sprintVelocity: 20
 --- !u!1 &8772697750916835782
