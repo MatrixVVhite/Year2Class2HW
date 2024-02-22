@@ -901,6 +901,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1228644164599396054, guid: bf80003a4a058544cb9e874947742244, type: 3}
   m_PrefabInstance: {fileID: 5359942603173887614}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1484124232 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3450222832797966158, guid: bf80003a4a058544cb9e874947742244, type: 3}
+  m_PrefabInstance: {fileID: 5359942603173887614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547319822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1242,38 @@ PrefabInstance:
     - target: {fileID: 3654767638559452233, guid: bf80003a4a058544cb9e874947742244, type: 3}
       propertyPath: m_Name
       value: Bridget
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1484124232}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 10974287}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PickUpScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499687114311841599, guid: bf80003a4a058544cb9e874947742244, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7560493006810488248, guid: bf80003a4a058544cb9e874947742244, type: 3}
       propertyPath: m_LocalPosition.x
