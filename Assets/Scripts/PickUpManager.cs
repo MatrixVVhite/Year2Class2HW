@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PickUpManager : MonoBehaviour
 {
-    private GameObject throwableObjectRef;
+    private GameObject throwableObjectGO;
+    private ThrowableObject throwableObject;
     [SerializeField] private PickUpScript pickUpScript;
     public event UnityAction ThrowObject;
     private UnityEvent ThrowObjectEvent = new();
@@ -37,13 +38,15 @@ public class PickUpManager : MonoBehaviour
     {
         if (gameObject != null)
         {
-            throwableObjectRef = gameObject;
-            throwableObjectRef.GetComponent<ThrowableObject>().FreezeMyRB();
+            throwableObjectGO = gameObject;
+            throwableObject = ThrowableObjectCollection.Instance.GetObject(throwableObjectGO);
+            throwableObject.FreezeMyRB();
         }
     }
 
     void SendThrowAction()
     {
-        throwableObjectRef.GetComponent<ThrowableObject>().ThrowMe();
+        throwableObject.ThrowMe();
+        throwableObject = null;
     }
 }
