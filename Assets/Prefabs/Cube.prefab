@@ -147,5 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpManager: {fileID: 0}
-  originPoint: {fileID: 0}
   _rb: {fileID: 1254643736713064036}
