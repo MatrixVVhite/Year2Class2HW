@@ -8,6 +8,11 @@ public class ThrowableObject : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     private Quaternion _direction;
 
+    private void OnValidate()
+    {
+        this.tag = "Cube";
+    }
+
     private void OnEnable()
     {
         pickUpManager.ThrowObject += ThrowMe;
