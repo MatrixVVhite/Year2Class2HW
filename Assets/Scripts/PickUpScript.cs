@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
 public class PickUpScript : MonoBehaviour
 {
     [SerializeField] private PickUpManager pickUpManager;
-    [SerializeField] private GameObject originPoint;
+    [SerializeField] private GameObject rayOriginPoint;
+    [SerializeField] private GameObject cubeThrowPoint;
+    [SerializeField] private GameObject cubesHierarcyGO;
     public event UnityAction<GameObject> OnPlayerPickUp;
     private UnityEvent<GameObject> OnPlayerPickUpEvent = new();
     public event UnityAction OnPlayerThrow;
@@ -43,13 +45,16 @@ public class PickUpScript : MonoBehaviour
             if (!CubeInHand)
                 OnPlayerPickUp.Invoke(TryPickUp());
             else
+            {
                 OnPlayerThrow.Invoke();
+                DropCube();
+            }
         } 
     }
 
     GameObject TryPickUp()
     {
-        Ray lookingAt = new Ray(originPoint.transform.position, originPoint.transform.forward);
+        Ray lookingAt = new Ray(rayOriginPoint.transform.position, rayOriginPoint.transform.forward);
 
         if (!CubeInHand)
         {
@@ -62,6 +67,7 @@ public class PickUpScript : MonoBehaviour
                     {
                         Debug.Log("Cube detected");
                         _cubeInHands = hit.collider.gameObject;
+                        _cubeInHands.transform.parent = cubeThrowPoint.transform;
                         return _cubeInHands;
                     }
                 }
@@ -72,6 +78,7 @@ public class PickUpScript : MonoBehaviour
 
     void DropCube()
     {
+        _cubeInHands.transform.parent = cubesHierarcyGO.transform;
         _cubeInHands = null;
     }
 }

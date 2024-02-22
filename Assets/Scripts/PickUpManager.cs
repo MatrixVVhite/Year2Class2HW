@@ -10,11 +10,15 @@ public class PickUpManager : MonoBehaviour
     [SerializeField] private PickUpScript pickUpScript;
     public event UnityAction ThrowObject;
     private UnityEvent ThrowObjectEvent = new();
+    public event UnityAction PickUpCube;
+    private UnityEvent PickUpCubeEvent = new();
 
     private void Awake()
     {
         if (ThrowObjectEvent != null)
             ThrowObjectEvent.AddListener(ThrowObject);
+        if (PickUpCubeEvent != null)
+            PickUpCubeEvent.AddListener(PickUpCube);
     }
 
     private void OnEnable()
@@ -32,12 +36,14 @@ public class PickUpManager : MonoBehaviour
     void AcceptGameObject(GameObject gameObject)
     {
         if (gameObject != null)
+        {
             throwableObjectRef = gameObject;
+            throwableObjectRef.GetComponent<ThrowableObject>().FreezeMyRB();
+        }
     }
 
     void SendThrowAction()
     {
-        //Add a way to figure out which object to throw using throwableObjectRef
-        ThrowObject.Invoke(); //Throw this event only to the object we need
+        throwableObjectRef.GetComponent<ThrowableObject>().ThrowMe();
     }
 }

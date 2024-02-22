@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0.5, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7215182136549541396}
   m_Father: {fileID: 8430727974804552422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3450222832797966158
@@ -237,7 +238,19 @@ MonoBehaviour:
     m_ActionId: a32613d9-ea1e-4f40-934f-8b83e9e0731f
     m_ActionName: Player/Look
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4036536365395183587}
+        m_TargetAssemblyTypeName: PickUpScript, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b1405f5e-f675-489d-81a3-dedbbe266b6f
     m_ActionName: Player/Fire
   - m_PersistentCalls:
@@ -300,7 +313,7 @@ MonoBehaviour:
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 3450222832797966158}
 --- !u!114 &3037263997654997719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +330,37 @@ MonoBehaviour:
   _movementDirection: {fileID: 8430727974804552422}
   _walkVelocity: 10
   _sprintVelocity: 15
+--- !u!1 &4725271313986034075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7215182136549541396}
+  m_Layer: 0
+  m_Name: CubeThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7215182136549541396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725271313986034075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1936237349448931123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8772697750916835782
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8430727974804552422}
   - component: {fileID: 6200565973398506744}
+  - component: {fileID: 4036536365395183587}
   m_Layer: 0
   m_Name: ShoulderView
   m_TagString: Untagged
@@ -363,6 +408,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraTransform: {fileID: 8430727974804552422}
+--- !u!114 &4036536365395183587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772697750916835782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9758f4039dc549f418c3a79764909e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpManager: {fileID: 0}
+  originPoint: {fileID: 1228644164599396054}
 --- !u!1001 &797142013281897843
 PrefabInstance:
   m_ObjectHideFlags: 0

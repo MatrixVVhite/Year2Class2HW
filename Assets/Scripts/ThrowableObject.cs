@@ -5,26 +5,33 @@ using UnityEngine;
 public class ThrowableObject : MonoBehaviour
 {
     [SerializeField] private PickUpManager pickUpManager;
-    [SerializeField] private GameObject originPoint;
     [SerializeField] private Rigidbody _rb;
     private Quaternion _direction;
 
     private void OnEnable()
     {
         pickUpManager.ThrowObject += ThrowMe;
+        pickUpManager.PickUpCube += FreezeMyRB;
     }
 
     private void OnDisable()
     {
         pickUpManager.ThrowObject -= ThrowMe;
+        pickUpManager.PickUpCube -= FreezeMyRB;
     }
 
-    void ThrowMe()
+    public void FreezeMyRB()
     {
-        //Update _direction to camera's direction
-        Transform throwOriginPoint = originPoint.transform;
-        //Add 2 forward depending on _direction
-        Vector3 force = _direction * Vector3.forward * 100;
+        _rb.constraints = RigidbodyConstraints.FreezePosition;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        transform.position = transform.parent.position;
+    }
+
+    public void ThrowMe()
+    {
+        _rb.constraints = RigidbodyConstraints.None;
+        _direction = transform.parent.rotation;
+        Vector3 force = _direction * Vector3.forward * 25;
         _rb.AddForce(force, ForceMode.Impulse);
     }
 }
