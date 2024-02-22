@@ -38,6 +38,6 @@ public class PickUpManager : MonoBehaviour
     void SendThrowAction()
     {
         //Add a way to figure out which object to throw using throwableObjectRef
-        ThrowObjectEvent.Invoke(); //Throw this event only to the object we need
+        ThrowObject.Invoke(); //Throw this event only to the object we need
     }
 }

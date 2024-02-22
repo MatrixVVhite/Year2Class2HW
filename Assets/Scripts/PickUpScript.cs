@@ -41,9 +41,9 @@ public class PickUpScript : MonoBehaviour
         if (context.started)
         {
             if (!CubeInHand)
-                OnPlayerPickUpEvent.Invoke(TryPickUp());
+                OnPlayerPickUp.Invoke(TryPickUp());
             else
-                OnPlayerThrowEvent.Invoke();
+                OnPlayerThrow.Invoke();
         } 
     }
 
@@ -62,7 +62,6 @@ public class PickUpScript : MonoBehaviour
                     {
                         Debug.Log("Cube detected");
                         _cubeInHands = hit.collider.gameObject;
-                        //Add coroutine that will have the cube follow the player around, a little ahead of originPoint's transform
                         return _cubeInHands;
                     }
                 }
@@ -73,7 +72,6 @@ public class PickUpScript : MonoBehaviour
 
     void DropCube()
     {
-        //stop the coroutine that causes the cube to follow the player
         _cubeInHands = null;
     }
 }
