@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ClappingOvrrideController
+  m_Controller: {fileID: 9100000, guid: ebcbce93bf6335b45bce77db67ba2911, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 97bd3a0f3f886cb4cbe642c78dd56be3, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 97bd3a0f3f886cb4cbe642c78dd56be3, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: ef12949d9ca4a1a40863b1e72e2dd94c, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: b1553e90f40220c438c5cb8859af857e, type: 3}

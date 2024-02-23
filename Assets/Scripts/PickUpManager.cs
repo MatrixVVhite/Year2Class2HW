@@ -6,23 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PickUpManager : MonoBehaviour
 {
-    private GameObject throwableObjectGO;
-    private ThrowableObject throwableObject;
-    [SerializeField] private PickUpScript pickUpScript;
+    private GameObject _throwableObjectGO;
+    private ThrowableObject _throwableObject;
+    [SerializeField] private PickUpScript _pickUpScript;
     public event UnityAction ThrowObject;
     private UnityEvent ThrowObjectEvent = new();
     public event UnityAction PickUpCube;
     private UnityEvent PickUpCubeEvent = new();
     public event UnityAction<ThrowCountData> OnThrow;
 
-    [SerializeField] private int _throwAmount;
+    private int _throwScore;
 
     void HandleThrowCount(ThrowCountData data)
     {
-        if (_throwAmount < data.HighestThrowCount)
+        if (_throwScore < data.HighestThrowCount)
         {
-            _throwAmount = data.HighestThrowCount;
-            Debug.Log(_throwAmount);
+            _throwScore = data.HighestThrowCount;
+            CheerManager.Instance.ActivateCheer();
         }
     }
 
@@ -36,15 +36,15 @@ public class PickUpManager : MonoBehaviour
 
     private void OnEnable()
     {
-        pickUpScript.OnPlayerPickUp += AcceptGameObject;
-        pickUpScript.OnPlayerThrow += SendThrowAction;
+        _pickUpScript.OnPlayerPickUp += AcceptGameObject;
+        _pickUpScript.OnPlayerThrow += SendThrowAction;
         OnThrow += HandleThrowCount;
     }
 
     private void OnDisable()
     {
-        pickUpScript.OnPlayerPickUp -= AcceptGameObject;
-        pickUpScript.OnPlayerThrow -= SendThrowAction;
+        _pickUpScript.OnPlayerPickUp -= AcceptGameObject;
+        _pickUpScript.OnPlayerThrow -= SendThrowAction;
         OnThrow -= HandleThrowCount;
     }
 
@@ -52,16 +52,16 @@ public class PickUpManager : MonoBehaviour
     {
         if (gameObject != null)
         {
-            throwableObjectGO = gameObject;
-            throwableObject = ThrowableObjectCollection.Instance.GetObject(throwableObjectGO);
-            throwableObject.FreezeMyRB();
+            _throwableObjectGO = gameObject;
+            _throwableObject = ThrowableObjectCollection.Instance.GetObject(_throwableObjectGO);
+            _throwableObject.FreezeMyRB();
         }
     }
 
     void SendThrowAction()
     {
-        throwableObject.ThrowMe();
-        OnThrow.Invoke(throwableObject.NewThrowData());
-        throwableObject = null;
+        _throwableObject.ThrowMe();
+        OnThrow.Invoke(_throwableObject.NewThrowData());
+        _throwableObject = null;
     }
 }

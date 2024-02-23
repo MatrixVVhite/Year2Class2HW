@@ -5,29 +5,29 @@ using UnityEngine;
 
 public class ThrowableObjectCollection : MonoBehaviour
 {
-    [SerializeField] private List<ThrowableObject> list;
-    private Dictionary<GameObject, ThrowableObject> dictionary;
+    [SerializeField] private List<ThrowableObject> _allThrowableObjects;
+    private Dictionary<GameObject, ThrowableObject> _allThrowableObjectstionaryAndGO;
 
     public static ThrowableObjectCollection Instance { get; private set; }
 
     private void OnValidate()
     {
-        list = FindObjectsOfType<ThrowableObject>().ToList();
+        _allThrowableObjects = FindObjectsOfType<ThrowableObject>().ToList();
     }
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-        dictionary = new Dictionary<GameObject, ThrowableObject>(list.Count);
-        foreach (var throwableObject in list)
+        _allThrowableObjectstionaryAndGO = new Dictionary<GameObject, ThrowableObject>(_allThrowableObjects.Count);
+        foreach (var throwableObject in _allThrowableObjects)
         {
-            dictionary.Add(throwableObject.gameObject, throwableObject);
+            _allThrowableObjectstionaryAndGO.Add(throwableObject.gameObject, throwableObject);
         }
     }
 
     public ThrowableObject GetObject(GameObject obj)
     {
-        return dictionary[obj];
+        return _allThrowableObjectstionaryAndGO[obj];
     }
 }
