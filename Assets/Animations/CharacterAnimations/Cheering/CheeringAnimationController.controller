@@ -59,7 +59,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Layer
+  m_Name: Subdued Cheering
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6160781264260675532}
