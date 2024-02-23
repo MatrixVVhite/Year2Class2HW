@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 105285155}
   - component: {fileID: 105285156}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Invisible Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6560,7 +6560,7 @@ GameObject:
   - component: {fileID: 1170508144}
   - component: {fileID: 1170508143}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8661,7 +8661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf063b96d07a0124f95224cade506b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpScript: {fileID: 10974287}
+  _pickUpScript: {fileID: 10974287}
 --- !u!4 &1547319824
 Transform:
   m_ObjectHideFlags: 0
@@ -8689,7 +8689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c3ab36fa3df84aa3c2343a497dbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list:
+  _allThrowableObjects:
   - {fileID: 541100812}
   - {fileID: 625967805}
   - {fileID: 1115959402}
