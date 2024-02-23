@@ -13,6 +13,18 @@ public class PickUpManager : MonoBehaviour
     private UnityEvent ThrowObjectEvent = new();
     public event UnityAction PickUpCube;
     private UnityEvent PickUpCubeEvent = new();
+    public event UnityAction<ThrowCountData> OnThrow;
+
+    [SerializeField] private int _throwAmount;
+
+    void HandleThrowCount(ThrowCountData data)
+    {
+        if (_throwAmount < data.HighestThrowCount)
+        {
+            _throwAmount = data.HighestThrowCount;
+            Debug.Log(_throwAmount);
+        }
+    }
 
     private void Awake()
     {
@@ -26,12 +38,14 @@ public class PickUpManager : MonoBehaviour
     {
         pickUpScript.OnPlayerPickUp += AcceptGameObject;
         pickUpScript.OnPlayerThrow += SendThrowAction;
+        OnThrow += HandleThrowCount;
     }
 
     private void OnDisable()
     {
         pickUpScript.OnPlayerPickUp -= AcceptGameObject;
         pickUpScript.OnPlayerThrow -= SendThrowAction;
+        OnThrow -= HandleThrowCount;
     }
 
     void AcceptGameObject(GameObject gameObject)
@@ -47,6 +61,7 @@ public class PickUpManager : MonoBehaviour
     void SendThrowAction()
     {
         throwableObject.ThrowMe();
+        OnThrow.Invoke(throwableObject.NewThrowData());
         throwableObject = null;
     }
 }

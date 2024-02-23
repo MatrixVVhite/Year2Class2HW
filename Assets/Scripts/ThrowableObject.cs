@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ThrowableObject : MonoBehaviour
 {
-    [SerializeField] private PickUpManager pickUpManager;
+
+    [SerializeField] private PickUpManager _pickUpManager;
     [SerializeField] private Rigidbody _rb;
     private Quaternion _direction;
+    private int _throwCount;
 
     private void OnValidate()
     {
@@ -15,14 +18,14 @@ public class ThrowableObject : MonoBehaviour
 
     private void OnEnable()
     {
-        pickUpManager.ThrowObject += ThrowMe;
-        pickUpManager.PickUpCube += FreezeMyRB;
+        _pickUpManager.ThrowObject += ThrowMe;
+        _pickUpManager.PickUpCube += FreezeMyRB;
     }
 
     private void OnDisable()
     {
-        pickUpManager.ThrowObject -= ThrowMe;
-        pickUpManager.PickUpCube -= FreezeMyRB;
+        _pickUpManager.ThrowObject -= ThrowMe;
+        _pickUpManager.PickUpCube -= FreezeMyRB;
     }
 
     public void FreezeMyRB()
@@ -38,5 +41,10 @@ public class ThrowableObject : MonoBehaviour
         _direction = transform.parent.rotation;
         Vector3 force = _direction * Vector3.forward * 25;
         _rb.AddForce(force, ForceMode.Impulse);
+    }
+
+    public ThrowCountData NewThrowData()
+    {
+        return new ThrowCountData(++_throwCount);
     }
 }

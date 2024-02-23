@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -403,6 +407,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -471,6 +479,10 @@ PrefabInstance:
       objectReference: {fileID: 1484124230}
     - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
       propertyPath: pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
@@ -552,6 +564,10 @@ PrefabInstance:
       objectReference: {fileID: 1484124230}
     - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
       propertyPath: pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
@@ -658,6 +674,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &916861440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916861441}
+  m_Layer: 0
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &916861441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916861440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.560652, y: -7.0316596, z: -9.8586035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002281441 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4725271313986034075, guid: bf80003a4a058544cb9e874947742244, type: 3}
@@ -765,6 +812,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -844,6 +895,10 @@ PrefabInstance:
       objectReference: {fileID: 1484124230}
     - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
       propertyPath: pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
@@ -927,6 +982,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -995,6 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpScript: {fileID: 10974287}
+  _throwAmount: 0
 --- !u!4 &1547319824
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,17 +1083,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 1687628211}
-  - {fileID: 1667943617}
-  - {fileID: 99695877580112344}
-  - {fileID: 1115959402}
-  - {fileID: 625967805}
-  - {fileID: 1785371452}
   - {fileID: 541100812}
-  - {fileID: 1174425771}
-  - {fileID: 1693986495}
-  - {fileID: 1205209974}
+  - {fileID: 625967805}
+  - {fileID: 1115959402}
   - {fileID: 1170950697}
+  - {fileID: 1174425771}
+  - {fileID: 1205209974}
+  - {fileID: 1667943617}
+  - {fileID: 1687628211}
+  - {fileID: 1693986495}
+  - {fileID: 1785371452}
+  - {fileID: 99695877580112344}
 --- !u!114 &1667943617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
@@ -1103,6 +1163,10 @@ PrefabInstance:
       objectReference: {fileID: 1484124230}
     - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
       propertyPath: pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
@@ -1186,6 +1250,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1267,6 +1335,10 @@ PrefabInstance:
       propertyPath: pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1346,6 +1418,10 @@ PrefabInstance:
       objectReference: {fileID: 1484124230}
     - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
       propertyPath: pickUpManager
+      value: 
+      objectReference: {fileID: 1547319823}
+    - target: {fileID: 7895608289558769053, guid: a51e829885bd28040bf1aae6e6a83f76, type: 3}
+      propertyPath: _pickUpManager
       value: 
       objectReference: {fileID: 1547319823}
     m_RemovedComponents: []
@@ -1455,3 +1531,4 @@ SceneRoots:
   - {fileID: 1098485671}
   - {fileID: 5359942603173887614}
   - {fileID: 1547319824}
+  - {fileID: 916861441}
