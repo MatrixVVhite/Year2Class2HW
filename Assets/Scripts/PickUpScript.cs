@@ -62,10 +62,8 @@ public class PickUpScript : MonoBehaviour
             {
                 if (!hit.IsUnityNull())
                 {
-                    Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.tag == "Cube")
                     {
-                        Debug.Log("Cube detected");
                         _cubeInHands = hit.collider.gameObject;
                         _cubeInHands.transform.parent = cubeThrowPoint.transform;
                         return _cubeInHands;
